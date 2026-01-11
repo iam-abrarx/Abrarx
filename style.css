@@ -1,0 +1,513 @@
+/* ===================================
+   CSS Variables - Design System
+   =================================== */
+:root {
+  --font-primary: 'Cutive Mono', 'Courier New', Courier, monospace;
+  --color-bg: #FFFFFF;
+  --color-text: #000000;
+  --color-link: #0000FF;
+  --spacing-section: 3rem;
+  --spacing-item: 1.5rem;
+  --spacing-small: 0.5rem;
+  --max-width: 900px;
+  --line-height-base: 1.6;
+  --line-height-heading: 1.2;
+}
+
+/* ===================================
+   Font Face - Cutive Mono
+   =================================== */
+@font-face {
+  font-family: 'Cutive Mono';
+  src: url('materials/CutiveMono-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ===================================
+   Base Styles
+   =================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-primary);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: var(--line-height-base);
+  padding: 2rem 1rem;
+  cursor: crosshair;
+  /* Default custom cursor */
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+/* ===================================
+   Typography
+   =================================== */
+h1,
+h2,
+h3,
+strong {
+  font-weight: bold;
+  line-height: var(--line-height-heading);
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-size: 1.75rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+a {
+  color: var(--color-link);
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+a:hover {
+  opacity: 0.7;
+  text-decoration: underline;
+}
+
+/* ===================================
+   Header Section
+   =================================== */
+.header {
+  margin-bottom: var(--spacing-section);
+}
+
+.name {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.introduction {
+  font-size: 1rem;
+  line-height: var(--line-height-base);
+  margin-bottom: 0;
+}
+
+.btn-download {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--color-text);
+  color: var(--color-text);
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+}
+
+.btn-download:hover {
+  background-color: var(--color-text);
+  color: var(--color-bg);
+  text-decoration: none;
+  opacity: 1;
+}
+
+/* ===================================
+   Navigation Menu (Vertical Fixed)
+   =================================== */
+.nav-sidebar {
+  position: fixed;
+  left: 100px;
+  top: 250px;
+  width: auto;
+  /* Auto width */
+  height: auto;
+  /* Auto height */
+  background-color: transparent;
+  /* No background */
+  border: none;
+  /* No border */
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  z-index: 100;
+  align-items: flex-start;
+  /* Left align items */
+}
+
+.nav-sidebar a {
+  color: var(--color-text);
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.2s ease;
+  position: relative;
+  padding-left: 0;
+  font-size: 0.95rem;
+  text-align: left;
+}
+
+.nav-sidebar a:hover {
+  color: var(--color-link);
+  padding-left: 0.5rem;
+}
+
+.nav-sidebar a::before {
+  content: '>';
+  position: absolute;
+  left: -1rem;
+  opacity: 0;
+  transition: all 0.2s ease;
+}
+
+.nav-sidebar a:hover::before {
+  opacity: 1;
+  left: -0.8rem;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Add scroll padding to account for spacing */
+html {
+  scroll-padding-top: 2rem;
+}
+
+
+/* ===================================
+   Dotted Dividers
+   =================================== */
+.divider {
+  border-bottom: 1px dotted var(--color-text);
+  margin: 0.5rem 0 1rem 0;
+}
+
+/* Technical Skills */
+.skills-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.skill-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.skill-category {
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .skill-row {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+/* ===================================
+   Info Grid (Contact & Education)
+   =================================== */
+.grid-2-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: var(--spacing-section);
+}
+
+.info-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.info-list li {
+  margin-bottom: 0.5rem;
+  padding-left: 1.2rem;
+  position: relative;
+}
+
+.info-list li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  font-weight: bold;
+}
+
+/* ===================================
+   Sections
+   =================================== */
+.projects,
+.experience,
+.skills {
+  margin-bottom: var(--spacing-section);
+}
+
+.section-title {
+  margin-bottom: 1.5rem;
+  border-bottom: 1px dotted var(--color-text);
+  padding-bottom: 0.5rem;
+}
+
+/* ===================================
+   Project List
+   =================================== */
+.project-list {
+  list-style-position: outside;
+  padding-left: 1.5rem;
+}
+
+.project-list li {
+  margin-bottom: var(--spacing-item);
+}
+
+.project-list strong {
+  display: inline;
+}
+
+/* ===================================
+   Experience List
+   =================================== */
+.experience-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.experience-list>li {
+  margin-bottom: var(--spacing-item);
+  padding-left: 1.2rem;
+  position: relative;
+}
+
+.experience-list>li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  font-weight: bold;
+}
+
+.sub-list {
+  list-style: none;
+  margin-top: 0.5rem;
+  padding-left: 1.2rem;
+}
+
+.sub-list li {
+  margin-bottom: 0.25rem;
+  padding-left: 1.2rem;
+  position: relative;
+}
+
+.sub-list li::before {
+  content: '◦';
+  position: absolute;
+  left: 0;
+}
+
+/* ===================================
+   Skills Section
+   =================================== */
+.skills-link {
+  color: var(--color-link);
+}
+
+.skills-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.skill-category {
+  line-height: var(--line-height-base);
+}
+
+/* Social Links */
+.social-links {
+  position: fixed;
+  left: 100px;
+  top: 850px;
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 0;
+  /* Removed margin */
+  align-items: center;
+  z-index: 90;
+  /* High enough to be visible */
+}
+
+.social-links a {
+  display: inline-block;
+  color: var(--color-text);
+  transition: all 0.2s ease;
+  line-height: 0;
+}
+
+.social-links svg {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+}
+
+.social-links a:hover {
+  color: var(--color-link);
+  transform: translateY(-2px);
+}
+
+/* ===================================
+   Responsive Design (Framework-like)
+   =================================== */
+
+/* Tablet & Desktop Tweaks (Max 900px) */
+@media (max-width: 900px) {
+  :root {
+    --max-width: 90%;
+  }
+
+  .nav-sidebar {
+    left: 20px;
+  }
+
+  .social-links {
+    left: 20px;
+  }
+}
+
+/* Mobile Devices (Max 700px) - Stacking Breakpoint */
+@media (max-width: 700px) {
+
+  /* 1. Navigation: Sidebar -> Top Bar */
+  .nav-sidebar {
+    position: static;
+    width: 100%;
+    height: auto;
+    border-right: none;
+    border-bottom: 1px dotted var(--color-text);
+    padding: 1rem 0;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    background-color: var(--color-bg);
+  }
+
+  .nav-sidebar a {
+    font-size: 0.9rem;
+    padding-left: 0;
+  }
+
+  .nav-sidebar a:hover {
+    padding-left: 0;
+    text-decoration: underline;
+  }
+
+  .nav-sidebar a::before {
+    display: none;
+  }
+
+  /* 2. Layout: Horizontal -> Vertical Stack */
+  .grid-2-col,
+  .skill-row {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  /* 3. Socials: Fixed -> Static Bottom */
+  .social-links {
+    position: static;
+    margin: 3rem auto 2rem auto;
+    /* Center with auto margins */
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* 4. Typography & Spacing adjustments */
+  body {
+    padding: 1rem;
+  }
+
+  .name {
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  h1,
+  h2,
+  .section-title {
+    text-align: center;
+  }
+
+  .section-title {
+    border-bottom: 1px dotted var(--color-text);
+    display: inline-block;
+    width: 100%;
+    text-align: left;
+    /* Keep titles left aligned for clean look */
+  }
+
+  /* Reset padding for lists on mobile */
+  .skills-list,
+  .experience-list,
+  .project-list {
+    padding-left: 0.5rem;
+  }
+}
+
+/* Small Mobile (Max 400px) */
+@media (max-width: 400px) {
+  .name {
+    font-size: 1.75rem;
+  }
+
+  .nav-sidebar {
+    gap: 1rem;
+  }
+
+  .nav-sidebar a {
+    font-size: 0.8rem;
+  }
+}
+
+/* ===================================
+   Footer
+   =================================== */
+footer {
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--color-text);
+  margin-top: 4rem;
+  padding-top: 1rem;
+  border-top: 1px dotted var(--color-text);
+  opacity: 0.7;
+}
+
+/* ===================================
+   Print Styles
+   =================================== */
+@media print {
+  body {
+    padding: 0;
+  }
+
+  a {
+    color: var(--color-text);
+    text-decoration: none;
+  }
+
+  .skills-link {
+    color: var(--color-text);
+  }
+}
